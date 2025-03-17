@@ -1,0 +1,23 @@
+body {
+    background-color: aqua;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 {
+    color: rgb(33, 33, 172);
+}
+
+a {
+    color: rgb(143, 11, 11);
+}
+
+a:hover {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    color: rgb(255, 0, 0);
+    font-weight: 100;
+}
+
+.MyRocket::before{
+    content: "🚀";
+}
