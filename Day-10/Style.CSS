@@ -47,7 +47,7 @@ p:not(:first-of-type) {
 
 /* ::before Pseudo-Element */
 ul li::before {
-    content: "🚀";
+    content: "🏏";
 }
 
 /* ::after Pseudo-Element */
