@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Random Number Generator</title>
+
+</head>
+
+<body>
+
+<h2>Random Number Generator with Current Date</h2>
+
+<p id="date"></p>
+
+<p id="randomNumbers"></p>
+
+<p id="roundedNumber"></p>
+
+<script>
+
+// Display current date
+
+const today = new Date();
+
+document.getElementById("date").innerHTML = "Current Date: " + today.toDateString();
+
+// Generate and display a random set of 5 numbers
+
+let numbers = "Random Set of Numbers: ";
+
+for (let i = 0; i < 5; i++) {
+
+numbers += Math.floor(Math.random() * 100 + 1) + " ";
+
+}
+
+document.getElementById("randomNumbers").innerHTML = numbers;
+
+// Generate and display a rounded random number
+
+let randomFloat = Math.random() * 100; // random float from 0 to 100
+
+let rounded = randomFloat.toFixed(2); // rounded to 2 decimal places
+
+document.getElementById("roundedNumber").innerHTML =
+
+"Rounded Random Number: " + rounded;
+
+</script>
+
+</body>
+
+</html>
