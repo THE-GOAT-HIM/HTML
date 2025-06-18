@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Hobbies</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    h1 {
+      color: #007acc;
+    }
+    ul {
+      list-style-type: square;
+    }
+    .pagination {
+      margin-top: 20px;
+    }
+    .pagination button {
+      padding: 5px 10px;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Hobbies</h1>
+  <ul id="hobbyList"></ul>
+
+  <div class="pagination">
+    <button onclick="prevPage()" id="prevBtn">Previous</button>
+    <span id="pageInfo">Page 1</span>
+    <button onclick="nextPage()" id="nextBtn">Next</button>
+  </div>
+
+  <script>
+    const hobbies = [
+      "Reading",
+      "Drawing",
+      "Cycling",
+      "Gaming",
+      "Cooking",
+      "Photography",
+      "Traveling"
+    ];
+
+    const perPage = 2;
+    let currentPage = 1;
+
+    function showHobbies() {
+      const list = document.getElementById("hobbyList");
+      list.innerHTML = "";
+
+      const start = (currentPage - 1) * perPage;
+      const end = start + perPage;
+      const pageHobbies = hobbies.slice(start, end);
+
+      for (const hobby of pageHobbies) {
+        const li = document.createElement("li");
+        li.textContent = hobby;
+        list.appendChild(li);
+      }
+
+      document.getElementById("pageInfo").textContent = `Page ${currentPage}`;
+      document.getElementById("prevBtn").disabled = currentPage === 1;
+      document.getElementById("nextBtn").disabled = end >= hobbies.length;
+    }
+
+    function nextPage() {
+      if ((currentPage * perPage) < hobbies.length) {
+        currentPage++;
+        showHobbies();
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        showHobbies();
+      }
+    }
+
+    // Initial display
+    showHobbies();
+  </script>
+
+</body>
+</html>
